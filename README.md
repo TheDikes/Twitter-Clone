@@ -1,6 +1,6 @@
 # Twitter-Clone
 
-## A twitter clone built with technologies like `ReactJs`, `material ui`, `css` and ``firebase.
+## A twitter clone built with technologies like `ReactJs`, `material ui`, `css` and `firebase`.
 
 Material ui was used for all the icons..
 Real time firestore database was used for the comments and posts made
