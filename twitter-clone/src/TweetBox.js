@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./TweetBox.css";
+import { collection, addDoc } from 'firebase/firestore';
 import { Avatar, Button } from "@mui/material";
 import db from "./firebase";
 
@@ -7,21 +8,23 @@ function TweetBox() {
   const [tweetMessage, setTweetMessage] = useState("");
   const [tweetImage, setTweetImage] = useState("");
 
-  const sendTweet = (e) => {
-    e.preventDefault();
-
-    db.collection("posts").add({
-      displayName: "Cynthia Dike",
-      username: "DikeCynthia14",
-      verified: true,
-      text: tweetMessage,
-      image: tweetImage,
-      avatar:
-        "https://assets.webiconspng.com/uploads/2017/09/Avatar-PNG-Image-13248.png",
-    });
-
-    setTweetMessage("");
-    setTweetImage("");
+  const sendTweet = async (e) => {
+      e.preventDefault();
+    try {
+      const docRef = await addDoc(collection(db, 'posts'), {
+        displayName: 'Cynthia Dike',
+        username: 'DikeCynthia14',
+        verified: true,
+        text: tweetMessage,
+        image: tweetImage,
+        avatar: 'https://assets.webiconspng.com/uploads/2017/09/Avatar-PNG-Image-13248.png',
+      });
+      console.log('Tweet added with ID: ', docRef.id);
+      setTweetMessage('');
+      setTweetImage('');
+    } catch (error) {
+      console.error('Error adding tweet: ', error);
+    }
   };
 
   return (
@@ -45,7 +48,7 @@ function TweetBox() {
         />
 
         <Button
-          onclick={sendTweet}
+          onClick={sendTweet}
           type="submit"
           className="tweetBox__tweetButton"
         >
