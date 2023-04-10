@@ -1,9 +1,6 @@
 body {
   --twitter-color: #50b7f5;
   --twitter-background: #e6ecf0;
-  box-sizing: border-box;
-  margin: 0;
-  display: flex;
 }
 
 .app {
@@ -12,13 +9,15 @@ body {
   margin: 0;
   min-height: 100vh;
   padding: 0 10px;
+  
 }
 
 /* For mobile phones */
 @media only screen and (max-width: 480px) {
-  .app {
-    display: flex;
-  }
+ .homechild {
+padding-right: 10px;
+font-size: medium;
+}
 
   Button > span {
     display: none;
@@ -30,7 +29,8 @@ body {
     display: none;
   }
 
-  .sidebarOption {
+
+  .sidebarOption, .avatar {
     display: table;
     padding-left: 10px;
   }
@@ -46,10 +46,10 @@ body {
 
 /* For tablets */
 @media only screen and (max-width: 1100px) and (min-width: 480px) {
-  .app {
-    display: flex;
-    
-  }
+  .homechild {
+  display: table-cell;
+  
+     }
 
   Button > span {
     display: none;
@@ -61,7 +61,7 @@ body {
     display: none;
   }
 
-  .sidebarOption {
+  .sidebarOption, .avatar {
     display: table;
     padding-left: 10px;
   }
