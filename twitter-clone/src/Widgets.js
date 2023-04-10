@@ -15,14 +15,14 @@ function Widgets() {
         <input placeholder="Search Twitter" types="text" />
       </div>
       <div className="widgets__widgetContainer">
-        <h2>What's happening?</h2>
+        <h2>Trends for you</h2>
 
         <TwitterTweetEmbed tweetId={"858551177860055040"} />
 
         <TwitterTimelineEmbed
           sourceType="profile"
           screenName="DikeCynthia14"
-          options={{ height: 400 }}
+          options={{ height: 200 }}
         />
 
         <TwitterShareButton

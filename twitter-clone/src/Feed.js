@@ -22,7 +22,22 @@ function Feed() {
   return (
     <div className="feed">
       <div className="feed__header">
-        <h2>Home</h2>
+        <h2 className='home'>
+          <a href="home">Home</a>
+        </h2>
+        <ul>
+          <li className="homechild">
+            <div>
+              <a href="home">For you</a>
+            </div>
+          </li>
+
+          <li className="homechild">
+            <div>
+              <a href="home">Following</a>
+            </div>
+          </li>
+        </ul>
       </div>
 
       <TweetBox />
